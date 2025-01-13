@@ -52,7 +52,7 @@ Pendekatan solusi untuk mencapai goals sebelumnya dapat dijabarkan dalam langkah
 
 ## Data Understanding
 
-Dataset yang digunakan pada proyek ini terdiri dari 3 file CSV, yaitu `Books.csv`, `Ratings.csv`, dan `Users.csv` ([Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset))) dengan informasi detail dari masing-masing file sebagai berikut.
+Dataset yang digunakan pada proyek ini terdiri dari 3 file CSV, yaitu `Books.csv`, `Ratings.csv`, dan `Users.csv` ([Kaggle - Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)) dengan informasi detail dari masing-masing file sebagai berikut.
 
 `Books.csv` berisi informasi mengenai buku. Terdapat 271.360 baris dan 8 kolom dengan keterangan variabel sebagai berikut.
 | Variabel | Tipe Data | Deskripsi |
@@ -86,16 +86,82 @@ EDA adalah langkah kritis dalam analisis data yang memungkinkan untuk memahami i
 
 #### Dataset Books
 
+![Gambar01](https://github.com/user-attachments/assets/998d1a54-32fd-4a88-9fa4-ec85046b383f)
 
 DataFrame Books berisi 271.360 baris dengan 8 kolom data buku. Terdapat kesalahan tipe data pada kolom Year-Of-Publication yang seharusnya Integer, namun Object. Ada kemungkinan terdapat kesalahan nilai di dalamnya yang akan diperiksa di proses selanjutnya. Pada kolom Book-Author, Publisher, dan Image-URL-L terdapat nilai hilang, masing-masing sebanyak 2, 2, dan 3, sehingga perlu dilakukan pemrosesan lebih lanjut pada tahap persiapan data.
+
+![Gambar02](https://github.com/user-attachments/assets/d96528d4-2fbe-4376-ae83-2acb832eb87a)
 
 Kolom Year-Of-Publication memiliki kesalahan nilai. Kesalahan tulis pada nilai ini akan diperbaiki pada tahap persiapan data.
 
 #### Dataset Ratings
 
+![Gambar03](https://github.com/user-attachments/assets/daade7c7-736c-4152-b944-8e1e8ae9716c)
 
+DataFrame Ratings berisi 1.149.780 baris dengan 3 kolom data rating. Tidak terdapat nilai hilang pada setiap kolomnya.
+
+![Gambar04](https://github.com/user-attachments/assets/eeca8ca0-77bf-4ec9-83e4-f99229cfa2bd)
+
+Berdasarkan visualisasi di atas, dapat disimpulkan bahwa rating terbanyak dari buku yang sudah pernah dibaca bernilai 0, dengan jumlah sekitar 700.000-an. Rating 0 tersebut dapat menyebabkan bias dan memengaruhi hasil analisis, sehingga data dengan rating 0 tersebut dapat dihapus pada tahap persiapan data.
+
+#### Dataset Users
+
+![Gambar05](https://github.com/user-attachments/assets/4f861680-dc61-464b-bb0e-4c0fed1924e6)
+
+DataFrame Users berisi 278.858 baris dengan 3 kolom data user. Pada kolom Age terdapat nilai hilang sebanyak 110.762, sehingga perlu dilakukan pemrosesan lebih lanjut pada tahap persiapan data.
+
+![Gambar06](https://github.com/user-attachments/assets/6fc6a76e-c985-4ce1-8eb2-a8044140994a)
+
+Pada kolom Age terdapat nilai NaN dan nilai abnormal sehingga perlu dilakukan pemrosesan lebih lanjut pada tahap persiapan data.
+
+![Gambar07](https://github.com/user-attachments/assets/64152860-d589-407a-b094-30634fc59ea1)
+
+Berdasarkan visualisasi di atas, distribusi nilai Age memiliki skewness positif dan terdapat nilai abnormal yang akan diproses pada tahap persiapan data.
 
 ## Data Preparation
+
+### Dataset Books
+
+#### Memperbaiki Kesalahan Nilai
+
+![Gambar08](https://github.com/user-attachments/assets/04a8ec5c-55da-4180-b6c0-ce9775413771)
+
+Kolom Year-Of-Publication memiliki kesalahan nilai. Kesalahan tulis pada nilai ini akan diperbaiki secara manual.
+
+![Gambar09](https://github.com/user-attachments/assets/a7415939-c92f-4f17-83cf-590d195f8dd7)
+
+#### Mengganti Tipe Data Kolom
+
+Setelah kesalahan nilai pada kolom Year-Of-Publication diperbaiki, maka kolom Year-Of-Publication sudah dapat diubah tipe datanya menjadi Integer.
+
+![Gambar10](https://github.com/user-attachments/assets/5c06c036-6014-43f8-8a42-f6b74e9bd878)
+
+#### Memperbaiki Kesalahan Nilai
+
+![Gambar11](https://github.com/user-attachments/assets/0cde91d4-6651-4e04-ba8e-2a69b43b9260)
+
+Nilai pada kolom Year-Of-Publication juga terdapat nilai abnormal 0 dan nilai di atas 2014 (dataset diambil di tahun 2014). Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus karena imputasi dengan nilai mean tidak cocok untuk kolom ini yang memiliki skewness negatif yang apabila diberikan imputasi mean akan mengubah pola distribusinya.
+
+![Gambar12](https://github.com/user-attachments/assets/1f46f0cc-3a0d-4ed9-8ec4-ae600391e6c1)
+
+#### Menghapus Baris Nilai Kosong
+
+Berdasarkan informasi yang diperoleh pada tahap pemahaman data, pada DataFrame Books terdapat kolom yang bernilai kosong atau null, yaitu kolom Book-Author sebanyak 2 data, Publisher sebanyak 2 data, dan Image-URL-L sebanyak 3 data. Dikarenakan jumlah nilai kosong tersebut jauh lebih sedikit dibandingkan jumlah data, maka baris data dengan kolom yang bernilai kosong tersebut dapat dihapus dengan menggunakan fungsi .dropna(), dan jika dilakukan pengecekan kembali, maka tidak ditemukan lagi kolom yang bernilai kosong atau null.
+
+![Gambar13](https://github.com/user-attachments/assets/560b9805-bd56-46b8-b4ce-5328e1690e76)
+
+#### Menghapus Kolom yang Tidak Dibutuhkan
+
+Dikarenakan kolom `Image-URL-S`, `Image-URL-M`, dan `Image-URL-L' tidak dibutuhkan pada saat pemodelan sistem, maka kolom-kolom tersebut bisa dihapus dari DataFrame Books.
+
+![Gambar14](https://github.com/user-attachments/assets/36a616b5-fa48-4a53-a436-88edbab1c9ec)
+
+#### Mengecek Data Duplikat
+
+![Gambar15](https://github.com/user-attachments/assets/6b3524b5-173d-4266-947b-e8260e744ee7)
+
+Berdasarkan informasi, diketahui bahwa tidak terdapat data duplikat pada DataFrame Books.
+
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
