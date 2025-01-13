@@ -245,6 +245,44 @@ Pembagian ditentukan dengan ukuran data latih 80% dan data uji 20%. Ini diperluk
 ![Gambar29](https://github.com/user-attachments/assets/fd5844d4-a51f-4577-8444-3f1c89763e13)
 
 ## Modeling
+
+Tahap berikutnya adalah proses modeling atau membuat model machine learning yang dapat digunakan sebagai sistem rekomendasi untuk menentukan rekomendasi buku yang terbaik kepada pengguna dengan algoritme sistem rekomendasi tertentu. Seperti yang telah dituliskan dalam Solution Approach, model machine learning yang digunakan untuk menyelesaikan permasalahan dalam proyek ini adalah algoritme Content-Based Filtering dan Collaborative Filtering.
+
+### Content-Based Filtering
+
+Algoritme ini menghasilkan rekomendasi berdasarkan kemiripan DataFrame dari matriks Cosine Similarity yang sebelumnya didapatkan dari matriks TF-IDF.
+
+#### TF-IDF Vectorizer
+
+TF-IDF Vectorizer akan mentransformasikan teks menjadi representasi angka yang memiliki makna tertentu dalam bentuk matriks.
+
+![Gambar30](https://github.com/user-attachments/assets/6ad239da-8cac-48f7-8b6f-88904800294c)
+
+#### Cosine Similarity
+
+Cosine Similarity akan melakukan perhitungan derajat kesamaan (similarity degree) antar judul buku.
+
+![Gambar31](https://github.com/user-attachments/assets/5b839224-df5f-415f-bc88-550555ff2092)
+
+Selanjutnya fungsi rekomendasi_buku digunakan untuk melakukan komputasi perhitungan kesamaannya dengan nilai k atau jumlah rekomendasi, yaitu 10. 
+
+![Gambar32](https://github.com/user-attachments/assets/9451f4aa-862e-4ef5-88f4-7fb2e3e7258f)
+
+Berikut ini merupakan contoh dari hasil rekomendasi sistem dengan menggunakan algoritme Content-Based Filtering.
+
+Hasil dari algoritme Content-Based Filtering dari buku "Storm Warning (The Mage Storms, Book 1)" yang ditulis oleh "Mercedes Lackey" menghasilkan 7 buku lain dari penulis yang sama, yaitu: "Werehunter", "Storm Breaking (The Mage Storms, Book 3)", "Magic's Promise (The Last Herald-Mage Series, ...	", "Take a Thief", "Magic's Pawn (The Last Herald-Mage Series, Boo...", dan "Four &amp; Twenty Blackbirds".
+
+### Collaborative Filtering
+
+Model ini menggunakan library Tensorflow Keras untuk mengimpor model RecommenderNet. Model ini perlu dilakukan inisialisasi fungsi sebelum akhirnya dilakukan proses training.
+
+![Gambar33](https://github.com/user-attachments/assets/0c1a9df4-d61a-4577-bc4f-324d23d5156a)
+
+Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (Adaptive Moment Estimation) sebagai optimizer, dan Root Mean Squared Error (RMSE) sebagai metrik evaluasi.
+
+![Gambar34](https://github.com/user-attachments/assets/b4740d71-3ee1-4f16-866b-270081fcdb05)
+
+#### TF-IDF Vectorizer
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
@@ -258,9 +296,3 @@ Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, probl
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
