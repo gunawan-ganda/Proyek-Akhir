@@ -152,7 +152,7 @@ Berdasarkan informasi yang diperoleh pada tahap pemahaman data, pada DataFrame B
 
 #### Menghapus Kolom yang Tidak Dibutuhkan
 
-Dikarenakan kolom `Image-URL-S`, `Image-URL-M`, dan `Image-URL-L' tidak dibutuhkan pada saat pemodelan sistem, maka kolom-kolom tersebut bisa dihapus dari DataFrame Books.
+Dikarenakan kolom `Image-URL-S`, `Image-URL-M`, dan `Image-URL-L` tidak dibutuhkan pada saat pemodelan sistem, maka kolom-kolom tersebut bisa dihapus dari DataFrame Books.
 
 ![Gambar14](https://github.com/user-attachments/assets/36a616b5-fa48-4a53-a436-88edbab1c9ec)
 
@@ -182,8 +182,39 @@ Berdasarkan hasil visualisasi grafik di atas setelah rating 0 dihapus, dapat dil
 
 ### Dataset Users
 
-#### Menghapus Baris
+#### Memperbaiki Kesalahan Nilai
 
+![Gambar19](https://github.com/user-attachments/assets/c714b2c8-53fc-430c-baf3-5e7d08553087)
+
+Nilai pada kolom Age terdapat nilai abnormal 0 dan nilai di atas 100. Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus.
+
+#### Menghapus Baris Nilai Kosong
+
+Baris dengan kolom nilai kosong akan dihapus dari DataFrame Users.
+
+![Gambar20](https://github.com/user-attachments/assets/3ef74839-d467-4905-b1e1-dc294f66dbfd)
+
+Visualisasi distribusi nilai dari kolom Age setelah penghapusan nilai kosong.
+ 
+![Gambar21](https://github.com/user-attachments/assets/f652690a-f9b8-4649-9ee4-1882333f1419)
+
+#### Mengganti Tipe Data Kolom
+
+Kolom Age yang bertipe float akan diubah menjadi tipe integer.
+
+![Gambar22](https://github.com/user-attachments/assets/bc2c6db2-d180-4469-802a-02e91fd73ff2)
+
+#### Menghapus Kolom yang Tidak Dibutuhkan
+
+Dikarenakan kolom `Location` tidak dibutuhkan pada saat pemodelan sistem, maka kolom tersebut bisa dihapus dari DataFrame Users.
+
+![Gambar23](https://github.com/user-attachments/assets/f5b55df0-14a0-4959-af50-c216340f9230)
+
+#### Mengecek Data Duplikat
+
+![Gambar24](https://github.com/user-attachments/assets/5874fb4c-c593-4efc-9b3c-c20f9b1d227e)
+
+Berdasarkan informasi, diketahui bahwa tidak terdapat data duplikat pada DataFrame Users.
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
