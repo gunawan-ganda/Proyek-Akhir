@@ -216,6 +216,34 @@ Dikarenakan kolom `Location` tidak dibutuhkan pada saat pemodelan sistem, maka k
 
 Berdasarkan informasi, diketahui bahwa tidak terdapat data duplikat pada DataFrame Users.
 
+### Menggabungkan Dataset
+
+Data User-ID terdapat pada DataFrame Ratings dan Users, sehingga dilakukan penggabungan data tersebut pada kolom User-ID. Data ISBN terdapat pada DataFrame Books dan Ratings, sehingga dilakukan penggabungan data tersebut pada kolom ISBN.
+
+![Gambar25](https://github.com/user-attachments/assets/8f085a89-96ac-43cc-8ab5-290555b40aff)
+
+Tabel berikut ini menampilkan 10 judul buku dengan total rating tertinggi.
+
+![Gambar26](https://github.com/user-attachments/assets/f4e687dd-217e-442f-a2e3-75fa8d7e9f1b)
+
+### Mengambil Sampel Data untuk Pemodelan
+
+Pada tahapan sebelumnya, diketahui bahwa jumlah data setelah penggabungan DataFrame tergolong cukup banyak (mencapai 200.000-an data). Hal tersebut akan berdampak pada biaya yang diperlukan untuk melakukan proses pemodelan machine learning, seperti memakan waktu yang lama dan resource RAM ataupun GPU yang cukup besar. Oleh karena itu, pada proyek ini, jumlah data yang akan digunakan untuk proses pemodelan machine learning dibatasi hanya 10.000 baris.
+
+![Gambar27](https://github.com/user-attachments/assets/e6edf763-4e1a-409c-9bed-7a4a4a697fdd)
+
+### Encoding Fitur
+
+Encoding atau penyandian fitur diperlukan agar fitur nonnumerik bisa dipetakan dalam bentuk numerik, karena model machine learning hanya bisa menerima nilai numerik.
+
+![Gambar28](https://github.com/user-attachments/assets/17d6601b-24d9-4e06-9532-6033f86eb622)
+
+### Pembagian Dataset untuk Training dan Validasi
+
+Pembagian ditentukan dengan ukuran data latih 80% dan data uji 20%. Ini diperlukan agar model yang telah dilatih dapat diujikan seberapa akurat hasil prediksinya terhadap data baru. Hasilnya adalah sejumlah 8.000 baris data latih dan 2.000 baris data uji.
+
+![Gambar29](https://github.com/user-attachments/assets/fd5844d4-a51f-4577-8444-3f1c89763e13)
+
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
