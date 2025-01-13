@@ -340,9 +340,10 @@ RMSE yang baik adalah jika nilai RMSE < 10% skala data. Dengan menggunakan nilai
 
 = 0.1
 
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Hasil dari evaluasi RMSE pada proyek ini adalah di atas 10% skala data yang digunakan dari nilai target. Hal ini menandakan penerapan Collaborative Filtering dalam proyek ini belum cukup baik untuk digunakan sebagai sistem rekomendasi.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+![Gambar37](https://github.com/user-attachments/assets/b44bb6bb-1133-492b-a6cb-209eb69c2800)
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+## Kesimpulan
+
+Model yang digunakan untuk merekomendasikan buku berdasarkan algoritme Content-Based Filtering dan Collaborative Filtering telah berhasil dibuat. Pada Collaborative Filtering diperlukan data rating dari pengguna, sedangkan pada Content-Based Filtering, data rating tidak diperlukan karena analisis sistem rekomendasi berdasarkan atribut item dari masing-masing buku.
