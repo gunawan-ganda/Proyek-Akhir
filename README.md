@@ -284,7 +284,16 @@ Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (
 
 ![Gambar34](https://github.com/user-attachments/assets/b4740d71-3ee1-4f16-866b-270081fcdb05)
 
-#### TF-IDF Vectorizer
+Selanjutnya divisualisasikan hasil training dan validation error serta training dan validation loss menggunakan grafik plot dengan bantuan library matplotlib.
+
+![Gambar35](https://github.com/user-attachments/assets/20c2f705-9252-4bc3-adbe-fa90701b4ac7)
+
+Perhatikan bahwa proses training model cukup smooth dan model konvergen pada epochs sekitar "100". Dari proses ini diperoleh nilai error akhir sebesar "0.04" dan error pada data validasi sebesar "0.27". Nilai tersebut cukup bagus untuk sistem rekomendasi.
+
+Untuk mendapatkan rekomendasi buku yang akan dihasilkan oleh sistem, diperlukan data atau sampel dari pengguna secara acak dan mendefinisikan variabel buku yang belum pernah dibaca oleh pengguna yang merupakan daftar buku yang nantinya akan direkomendasikan. Daftar tersebut dapat didapatkan dengan menggunakan operator logika bitwise (~) pada variabel buku yang telah dibaca oleh pengguna.
+
+
+
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
