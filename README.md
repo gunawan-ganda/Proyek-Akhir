@@ -299,7 +299,47 @@ Model ini akan menampilkan 10 buku rekomendasi berdasarkan referensi buku yang t
 
 ![Gambar36](https://github.com/user-attachments/assets/280a24ca-47cc-440e-8d21-728a4c8fc9d7)
 
+Berdasarkan hasil di atas, dapat dilihat bahwa sistem akan mengambil pengguna secara acak, yaitu pengguna dengan User-ID "56399". Lalu akan dicari buku dengan rating terbaik dari user tersebut. Kemudian sistem akan membandingkan antara buku dengan rating tertinggi dari user dan semua buku, kecuali buku yang telah dibaca tersebut, lalu akan mengurutkan buku yang akan direkomendasikan berdasarkan nilai rekomendasi yang tertinggi. Hasil akhirnya adalah 10 buku yang direkomendasikan oleh sistem.
+
 ## Evaluation
+
+### Evaluasi pada Content-Based Filtering
+
+Metrik evaluasi yang digunakan adalah Precision, yaitu metrik evaluasi yang mengukur pola positif yang diprediksi dengan benar dari total pola prediksi dalam kelas positif. Kelebihan dari Precision adalah mampu menilai prediksi model terhadap label data positif. Ini menghasilkan kelemahan Precision yang tidak mampu mengukur hasil label negatif.
+
+$Precision = \frac{\text{TP}}{\text{TP} + \text{FP}}$
+
+Keterangan:
+- TP (True Positive) : nilai label positif yang diprediksi benar
+- FP (False Positive) : nilai label negatif yang diprediksi salah
+
+Hasil Precision dari contoh sebelumnya adalah (TP = 3, FP = 2):
+
+= 3 / (3+2)
+
+= 3 / 5
+
+= 0.6 atau 60%
+
+### Evaluasi pada Collaborative Filtering
+
+Metrik evaluasi yang digunakan adalah RMSE (Root Mean Squared Error), yaitu metrik evaluasi dengan menghitung akar dari jarak selisih antara prediksi dan nilai asli untuk setiap titik. Keunggulan RMSE adalah lebih sensitif terhadap jenis kesalahan besar sehingga jika nilai yang digunakan kecil, maka kinerja model akan memiliki nilai bagus. Sedangkan kelemahan RMSE adalah tidak mampu menggambarkan kesalahan rata-rata saja dan memiliki implikasi lain yang lebih sulit untuk diurai dan dipahami.
+
+$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$
+
+Keterangan:
+- n : Jumlah data
+- $y_i$ : Nilai aktual
+- $\hat{y}_i$ : Nilai prediksi
+
+RMSE yang baik adalah jika nilai RMSE < 10% skala data. Dengan menggunakan nilai y yang telah dinormalisasi dari nilai Book-Rating, maka < 10% skala data adalah:
+
+= (max_y - min_y) * 10%
+
+= (1 - 0) * 10%
+
+= 0.1
+
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
 
 Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
