@@ -146,7 +146,7 @@ Nilai pada kolom Year-Of-Publication juga terdapat nilai abnormal 0 dan nilai di
 
 #### Menghapus Baris Nilai Kosong
 
-Berdasarkan informasi yang diperoleh pada tahap pemahaman data, pada DataFrame Books terdapat kolom yang bernilai kosong atau null, yaitu kolom Book-Author sebanyak 2 data, Publisher sebanyak 2 data, dan Image-URL-L sebanyak 3 data. Dikarenakan jumlah nilai kosong tersebut jauh lebih sedikit dibandingkan jumlah data, maka baris data dengan kolom yang bernilai kosong tersebut dapat dihapus dengan menggunakan fungsi .dropna(), dan jika dilakukan pengecekan kembali, maka tidak ditemukan lagi kolom yang bernilai kosong atau null.
+Berdasarkan informasi yang diperoleh pada tahap pemahaman data, pada DataFrame Books terdapat kolom yang bernilai kosong atau null, yaitu kolom Book-Author sebanyak 2 data, Publisher sebanyak 2 data, dan Image-URL-L sebanyak 3 data. Jumlah tersebut tidak signifikan dibandingkan jumlah data yang tersedia, sehingga baris data dengan kolom yang bernilai kosong tersebut dapat dihapus dengan menggunakan fungsi .dropna(), dan jika dilakukan pengecekan kembali, maka tidak ditemukan lagi kolom yang bernilai kosong atau null.
 
 ![Gambar13](https://github.com/user-attachments/assets/560b9805-bd56-46b8-b4ce-5328e1690e76)
 
@@ -270,7 +270,9 @@ Selanjutnya fungsi rekomendasi_buku digunakan untuk melakukan komputasi perhitun
 
 Berikut ini merupakan contoh dari hasil rekomendasi sistem dengan menggunakan algoritme Content-Based Filtering.
 
-Hasil dari algoritme Content-Based Filtering dari buku "Storm Warning (The Mage Storms, Book 1)" yang ditulis oleh "Mercedes Lackey" menghasilkan 7 buku lain dari penulis yang sama, yaitu: "Werehunter", "Storm Breaking (The Mage Storms, Book 3)", "Magic's Promise (The Last Herald-Mage Series, ...	", "Take a Thief", "Magic's Pawn (The Last Herald-Mage Series, Boo...", dan "Four &amp; Twenty Blackbirds".
+![Gambar32_1](https://github.com/user-attachments/assets/142e0803-6863-4598-9b9f-9caa2ed34f35)
+
+Hasil dari algoritme Content-Based Filtering dari buku "Hercule Poirots Weihnachten." yang ditulis oleh "Agatha Christie" menghasilkan 10 buku lain dari penulis yang sama.
 
 ### Collaborative Filtering
 
