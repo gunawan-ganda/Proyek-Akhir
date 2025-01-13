@@ -183,9 +183,9 @@ Berdasarkan hasil visualisasi grafik di atas setelah rating 0 dihapus, dapat dil
 
 #### Memperbaiki Kesalahan Nilai
 
-![Gambar19](https://github.com/user-attachments/assets/c714b2c8-53fc-430c-baf3-5e7d08553087)
-
 Nilai pada kolom Age terdapat nilai abnormal 0 dan nilai di atas 90. Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus.
+
+![Gambar19](https://github.com/user-attachments/assets/c714b2c8-53fc-430c-baf3-5e7d08553087)
 
 #### Menghapus Baris Nilai Kosong
 
