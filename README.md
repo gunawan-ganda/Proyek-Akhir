@@ -6,13 +6,12 @@ Di era digital, jumlah buku yang tersedia di pasar, baik dalam format cetak maup
 
 Sementara itu, penelitian dari American Library Association (ALA) menunjukkan bahwa 70% pembaca mengandalkan rekomendasi dari teman, ulasan daring, atau algoritme untuk memilih buku. Kondisi ini menunjukkan adanya kebutuhan nyata akan teknologi yang dapat membantu pembaca memilih buku yang relevan dengan minat mereka.
 
-Sistem rekomendasi berbasis machine learning dapat menjadi solusi untuk permasalahan ini. Dengan memanfaatkan algoritme seperti content-based filtering dan collaborative filtering, sistem rekomendasi mampu menganalisis data preferensi pengguna dan menyediakan saran buku yang lebih personal. Amazon menggunakan pendekatan kombinasi collaborative filtering, content-based filtering, dan deep learning untuk meningkatkan pengalaman pengguna dan penjualan . Sebuah studi menunjukkan bahwa sistem ini meningkatkan penjualan hingga 35% dari total pendapatan mereka [Amazon.com Recommendations: Item-to-Item Collaborative Filtering](https://ieeexplore.ieee.org/document/1167344).
+Sistem rekomendasi berbasis machine learning dapat menjadi solusi untuk permasalahan ini. Dengan memanfaatkan algoritme seperti content-based filtering dan collaborative filtering, sistem rekomendasi mampu menganalisis data preferensi pengguna dan menyediakan saran buku yang lebih personal. Amazon menggunakan pendekatan kombinasi collaborative filtering, content-based filtering, dan deep learning untuk meningkatkan pengalaman pengguna dan penjualan. Sebuah studi menunjukkan bahwa sistem ini meningkatkan penjualan hingga 35% dari total pendapatan mereka [Amazon.com Recommendations: Item-to-Item Collaborative Filtering](https://ieeexplore.ieee.org/document/1167344).
 
 Proyek ini memiliki beberapa tujuan strategis yang membuatnya penting untuk diselesaikan, antara lain:
 - Meningkatkan Pengalaman Pengguna: Dengan menghadirkan rekomendasi personal, pengguna dapat menemukan buku yang sesuai dengan minat mereka tanpa perlu mencari secara manual dalam katalog yang besar.
 - Mendukung Industri Penerbitan Buku: Sistem ini juga dapat membantu penerbit dan penjual buku untuk memasarkan produk mereka dengan lebih tepat sasaran kepada pembaca yang berpotensi tertarik.
 - Efisiensi dan Personalisasi: Teknologi ini mengurangi waktu yang dibutuhkan pembaca untuk menemukan buku, sehingga meningkatkan efisiensi dan tingkat kepuasan.
-- Pengembangan Teknologi AI: Implementasi sistem rekomendasi ini memberikan kontribusi nyata terhadap pengembangan teknologi berbasis AI, khususnya dalam ranah content-based filtering dan collaborative filtering.
 
 ## Business Understanding
 
@@ -31,10 +30,10 @@ Berdasarkan rumusan masalah yang telah dipaparkan di atas, maka tujuan dari proy
 ### Solution Approach
 
 Pendekatan solusi untuk mencapai goals sebelumnya dapat dijabarkan dalam langkah-langkah sebagai berikut.
-- Menganalisis dataset yang ada dan menangani permasalahan pada dataset
-- Mengembangkan model dengan menggunakan 2 pendekatan, yaitu content-based filtering recommendation dan collaborative filtering recommendation.
-  - Content-based Filtering Recommendation (Sistem Rekomendasi Berbasis Penyaringan Konten)
-    - Merupakan sistem rekomendasi yang memberikan rekomendasi item yang hampir sama dengan item yang disukai oleh pengguna di masa lalu. Content-based filtering akan mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai oleh pengguna lain sebelumnya. Pendekatan content-based filtering menggunakan algoritme TF-IDF Vectorizer dan Cosine Similarity.
+- Menganalisis dataset yang ada dan menangani permasalahan pada dataset.
+- Mengembangkan model dengan menggunakan 2 pendekatan, yaitu Content-Based Filtering recommendation dan Collaborative Filtering recommendation.
+  - Content-Based Filtering Recommendation (Sistem Rekomendasi Berbasis Penyaringan Konten)
+    - Merupakan sistem rekomendasi yang memberikan rekomendasi item yang hampir sama dengan item yang disukai oleh pengguna di masa lalu. Content-Based Filtering akan mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai oleh pengguna lain sebelumnya. Pendekatan Content-Based Filtering menggunakan algoritme TF-IDF Vectorizer dan Cosine Similarity.
     - Algoritme ini bekerja dengan mencari kedekatan suatu buku yang akan direkomendasikan dengan buku yang telah diambil oleh pembaca berdasarkan kemiripan antar isinya.
     - Kelebihan:
       - Hasil rekomendasi didasarkan pada preferensi buku.
@@ -140,7 +139,7 @@ Setelah kesalahan nilai pada kolom Year-Of-Publication diperbaiki, maka kolom Ye
 
 ![Gambar11](https://github.com/user-attachments/assets/0cde91d4-6651-4e04-ba8e-2a69b43b9260)
 
-Nilai pada kolom Year-Of-Publication juga terdapat nilai abnormal 0 dan nilai di atas 2014 (dataset diambil di tahun 2014). Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus karena imputasi dengan nilai mean tidak cocok untuk kolom ini yang memiliki skewness negatif yang apabila diberikan imputasi mean akan mengubah pola distribusinya.
+Nilai pada kolom Year-Of-Publication juga terdapat nilai abnormal 0 dan nilai di atas 2014 (dataset diambil di tahun 2014). Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus.
 
 ![Gambar12](https://github.com/user-attachments/assets/1f46f0cc-3a0d-4ed9-8ec4-ae600391e6c1)
 
@@ -186,7 +185,7 @@ Berdasarkan hasil visualisasi grafik di atas setelah rating 0 dihapus, dapat dil
 
 ![Gambar19](https://github.com/user-attachments/assets/c714b2c8-53fc-430c-baf3-5e7d08553087)
 
-Nilai pada kolom Age terdapat nilai abnormal 0 dan nilai di atas 100. Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus.
+Nilai pada kolom Age terdapat nilai abnormal 0 dan nilai di atas 90. Nilai abnormal tersebut diperbaiki dengan melakukan imputasi nilai yang sering muncul atau nilai modus.
 
 #### Menghapus Baris Nilai Kosong
 
@@ -226,9 +225,15 @@ Tabel berikut ini menampilkan 10 judul buku dengan total rating tertinggi.
 
 ![Gambar26](https://github.com/user-attachments/assets/f4e687dd-217e-442f-a2e3-75fa8d7e9f1b)
 
+### Mengelompokkan dan Mengurutkan Data
+
+Proses ini akan menghasilkan data yang telah digabungkan berdasarkan kolom Book-Title dan diurutkan berdasarkan Book-Rating agar mengembalikan data yang bersifat unik dan diurutkan berdasarkan penilaian buku tertinggi.
+
+![Gambar26_1](https://github.com/user-attachments/assets/09d287f2-3fa5-4695-8d82-caffa324a6b9)
+
 ### Mengambil Sampel Data untuk Pemodelan
 
-Pada tahapan sebelumnya, diketahui bahwa jumlah data setelah penggabungan DataFrame tergolong cukup banyak (mencapai 200.000-an data). Hal tersebut akan berdampak pada biaya yang diperlukan untuk melakukan proses pemodelan machine learning, seperti memakan waktu yang lama dan resource RAM ataupun GPU yang cukup besar. Oleh karena itu, pada proyek ini, jumlah data yang akan digunakan untuk proses pemodelan machine learning dibatasi hanya 10.000 baris.
+Pada tahapan sebelumnya, diketahui bahwa jumlah data setelah penggabungan DataFrame tergolong cukup banyak (mencapai 100.000-an data). Hal tersebut akan berdampak pada biaya yang diperlukan untuk melakukan proses pemodelan machine learning, seperti memakan waktu yang lama dan resource RAM ataupun GPU yang cukup besar. Oleh karena itu, pada proyek ini, jumlah data yang akan digunakan untuk proses pemodelan machine learning dibatasi hanya 10.000 baris.
 
 ![Gambar27](https://github.com/user-attachments/assets/e6edf763-4e1a-409c-9bed-7a4a4a697fdd)
 
@@ -250,7 +255,7 @@ Tahap berikutnya adalah proses modeling atau membuat model machine learning yang
 
 ### Content-Based Filtering
 
-Algoritme ini menghasilkan rekomendasi berdasarkan kemiripan DataFrame dari matriks Cosine Similarity yang sebelumnya didapatkan dari matriks TF-IDF.
+Algoritme ini menghasilkan rekomendasi berdasarkan kemiripan DataFrame dari matriks Cosine Similarity yang sebelumnya didapatkan dari matriks TF-IDF. Fitur yang diambil adalah penulis buku dengan asumsi bahwa pembaca buku akan mencari buku dari penulis yang sama.
 
 #### TF-IDF Vectorizer
 
@@ -264,15 +269,15 @@ Cosine Similarity akan melakukan perhitungan derajat kesamaan (similarity degree
 
 ![Gambar31](https://github.com/user-attachments/assets/5b839224-df5f-415f-bc88-550555ff2092)
 
-Selanjutnya fungsi rekomendasi_buku digunakan untuk melakukan komputasi perhitungan kesamaannya dengan nilai k atau jumlah rekomendasi, yaitu 10. 
+Selanjutnya fungsi rekomendasi_buku digunakan untuk melakukan komputasi perhitungan kesamaannya dengan nilai k atau jumlah rekomendasi, yaitu 5. 
 
-![Gambar32](https://github.com/user-attachments/assets/9451f4aa-862e-4ef5-88f4-7fb2e3e7258f)
+![Gambar32](https://github.com/user-attachments/assets/597dc69f-7340-48ed-a440-2cab0a592f3e)
 
 Berikut ini merupakan contoh dari hasil rekomendasi sistem dengan menggunakan algoritme Content-Based Filtering.
 
-![Gambar32_1](https://github.com/user-attachments/assets/142e0803-6863-4598-9b9f-9caa2ed34f35)
+![Gambar32_1](https://github.com/user-attachments/assets/c19d2f60-1441-4802-bf1b-60da5f2f2293)
 
-Hasil dari algoritme Content-Based Filtering dari buku "Hercule Poirots Weihnachten." yang ditulis oleh "Agatha Christie" menghasilkan 10 buku lain dari penulis yang sama.
+Hasil dari algoritme Content-Based Filtering dari buku "NADA Es Azar" yang ditulis oleh "Richard Bach" menghasilkan 3 buku lain dari penulis yang sama.
 
 ### Collaborative Filtering
 
@@ -286,19 +291,13 @@ Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (
 
 Selanjutnya divisualisasikan hasil training dan validation error serta training dan validation loss menggunakan grafik plot dengan bantuan library matplotlib.
 
-![Gambar35](https://github.com/user-attachments/assets/20c2f705-9252-4bc3-adbe-fa90701b4ac7)
+![Gambar35](https://github.com/user-attachments/assets/89a50db7-64e4-4096-a417-909c7aafad41)
 
-Perhatikan bahwa proses training model cukup smooth dan model konvergen pada epochs sekitar "100". Dari proses ini diperoleh nilai error akhir sebesar "0.04" dan error pada data validasi sebesar "0.27". Nilai tersebut cukup bagus untuk sistem rekomendasi.
+Perhatikan bahwa proses training model cukup smooth dan model konvergen pada epochs sekitar "100". Dari proses ini diperoleh nilai error akhir sebesar "0.04" dan error pada data validasi sebesar "0.39".
 
-Untuk mendapatkan rekomendasi buku yang akan dihasilkan oleh sistem, diperlukan data atau sampel dari pengguna secara acak dan mendefinisikan variabel buku yang belum pernah dibaca oleh pengguna yang merupakan daftar buku yang nantinya akan direkomendasikan. Daftar tersebut dapat didapatkan dengan menggunakan operator logika bitwise (~) pada variabel buku yang telah dibaca oleh pengguna.
+Model ini akan menampilkan 10 buku rekomendasi berdasarkan referensi buku yang telah diberikan penilaian oleh user.
 
-
-
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+![Gambar36](https://github.com/user-attachments/assets/280a24ca-47cc-440e-8d21-728a4c8fc9d7)
 
 ## Evaluation
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
