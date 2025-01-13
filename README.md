@@ -162,11 +162,28 @@ Dikarenakan kolom `Image-URL-S`, `Image-URL-M`, dan `Image-URL-L' tidak dibutuhk
 
 Berdasarkan informasi, diketahui bahwa tidak terdapat data duplikat pada DataFrame Books.
 
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+### Dataset Ratings
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+#### Menghapus Baris
+
+Pada tahap pemahaman data, diketahui dari hasil visualisasi grafik "Distribusi Rating", sebagian besar data rating dari buku yang sudah pernah dibaca oleh user berada pada rating 0 (lebih dari 700.000-an). Kondisi tersebut dapat menyebabkan bias pada analisis data, sehingga data dengan rating 0 dapat dihapus. Data tersebut tidak akan diikutsertakan dalam DataFrame Ratings, dimana data yang diambil adalah data rating yang lebih besar dari 0, yaitu rating 1 hingga rating 10.
+
+![Gambar16](https://github.com/user-attachments/assets/49ce97fa-84a1-47ac-a98a-51c7318aa13c)
+
+#### Mengecek Data Duplikat
+
+![Gambar17](https://github.com/user-attachments/assets/271a4baa-1535-45da-bf19-925591f4d268)
+
+Berdasarkan informasi, diketahui bahwa tidak terdapat data duplikat pada DataFrame Ratings.
+
+![Gambar18](https://github.com/user-attachments/assets/368250ab-447f-468d-93f0-3a62efda4302)
+
+Berdasarkan hasil visualisasi grafik di atas setelah rating 0 dihapus, dapat dilihat bahwa distribusi data lebih jelas, terutama pada data rating 1 hingga rating 4.
+
+### Dataset Users
+
+#### Menghapus Baris
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
